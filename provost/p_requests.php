@@ -17,7 +17,7 @@ if(!isset($_SESSION["pro-loggedin"]) || $_SESSION["pro-loggedin"] !== true){
 //         WHERE u.name = ?";
 
 $sql = "SELECT s.amount, s.date, s.request, s.status, u.name, u.staff_id
-FROM s_requests s
+FROM staff_requests s
 JOIN users u ON u.staff_id = u.staff_id";
 
 $stmt = mysqli_prepare($link, $sql);
@@ -82,21 +82,15 @@ if ($stmt) {
 
         <ul class="navmenu">
             <li><a href="index.html">Home</a></li>            
-            <li><a href="dept/dept_reg.php">Provost</a></li>
+            <li><a href="p_log.php">Provost</a></li>
         </ul>
 
         <div class="nav-btn">
-                <!-- <a href="login.php" class="" id="log-btn">Login</a>
-                <a href="register.php" class="main-btn" id="reg-btn">Register</a> -->
-            <!-- <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Login</a>
-            <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Register</a> -->
-
-           <div  class="fa-solid fa-bars" id="menu-icon">H</div>
+              
+           <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
     <section>
-
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil soluta, esse maiores repellat eveniet in unde cupiditate ex atque praesentium, nisi quod ducimus facere magni molestiae magnam laboriosam quis distinctio!
         <h2> Kindly View the Following Requests</h2>
 
     </section>

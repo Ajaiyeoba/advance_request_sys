@@ -125,7 +125,7 @@ mysqli_close($link);
                 </a>
                 <p>Oyo State Nigeria</p>
                 <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+                <p>fundwatch@gmail.com</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>

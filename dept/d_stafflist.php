@@ -105,19 +105,11 @@ mysqli_close($link);
 
         <ul class="navmenu">
             <li><a href="../index.html">Home</a></li>            
-            <li><a href="dept/dept_login.php">Department</a></li>
-            
-
+            <li><a href="d_log.php">Department</a></li>
         </ul>
 
         <div class="nav-btn">
-
-                <a href="login.php" class="" id="log-btn">Login</a>
-                <a href="register.php" class="main-btn" id="reg-btn">Register</a>
-            <!-- <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Login</a>
-            <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Register</a> -->
-
-           <div  class="fa-solid fa-bars" id="menu-icon">H</div>
+           <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
     <section> 

@@ -77,14 +77,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
         <ul class="navmenu">
             <li><a href="index.html">Home</a></li>            
-            <li><a href="audit/a_log.php">Audit</a></li>
+            <li><a href="a_log.php">Audit</a></li>
         </ul>
 
         <div class="nav-btn">
                 <!-- <a href="login.php" class="" id="log-btn">Login</a>
                 <a href="register.php" class="main-btn" id="reg-btn">Register</a> -->
-            <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Login</a>
-            <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Register</a> 
            
            <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
@@ -136,17 +134,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </section> - -->
 
 <section>
-    <a href="">
+    <!-- <a href="">
         <button class="formbold-btn">View Staffs</button>
-    </a>
+    </a> -->
 
     <a href="a_requests.php">
         <button class="formbold-btn">Requests</button>
     </a>
 
-        <a href="a_board.php">
+        <!-- <a href="a_board.php">
             <button class="formbold-btn">View Board</button>
-        </a>
+        </a> -->
     </section>
     <section class="contact">
         <div class="contact-info">

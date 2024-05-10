@@ -33,24 +33,19 @@
 
         <ul class="navmenu">
             <li><a href="index.html">Home</a></li>            
-            <li><a href="dept/dept_reg.php">Dept</a></li>
-            <li><a href="staff/staff_login.php">Staff</a></li>            
-            <li><a href="bursary/bursary_login.php">Audit</a></li>
-
+            <li><a href="d_reg.php">Dept</a></li>
+           
         </ul>
 
         <div class="nav-btn">
 
-                <a href="login.php" class="" id="log-btn">Login</a>
-                <a href="register.php" class="main-btn" id="reg-btn">Register</a>
-            <!-- <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Login</a>
-            <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Register</a> -->
 
-           <div  class="fa-solid fa-bars" id="menu-icon">H</div>
+
+           <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
     <section>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptate sapiente, nostrum eveniet sed incidunt pariatur, aspernatur voluptates ut harum quibusdam? Totam ducimus aut ex possimus voluptate est, quibusdam ipsum?
+
 <h1 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["hod_name"]); ?></b> Welcome Back.  </h1>    
 
 </section>

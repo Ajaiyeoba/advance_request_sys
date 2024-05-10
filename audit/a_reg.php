@@ -189,12 +189,12 @@ if (empty(trim($_POST["confirm_password"]))) {
 
         <ul class="navmenu">
             <li><a href="../index.html">Home</a></li>            
-            <li><a href="staff_login.php">Staff</a></li>            
+            <li><a href="a_log.php">Audit</a></li>            
         </ul>
 
         <div class="nav-btn">
-        <a href="login.php" class="" id="log-btn">Login</a>
-                <a href="register.php" class="main-btn" id="reg-btn">Register</a>
+        <a href="a_log.php" class="" id="log-btn">Login</a>
+                <a href="a_reg.php" class="main-btn" id="reg-btn">Register</a>
            <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>

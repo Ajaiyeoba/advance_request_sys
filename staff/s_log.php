@@ -185,7 +185,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <ul class="navmenu">
             <li><a href="../index.html">Home</a></li>            
             <!-- <li><a href="">Dept</a></li> -->
-            <li><a href="staff/s_log.php">Staff</a></li>            
+            <li><a href="s_log.php">Staff</a></li>            
             <!-- <li><a href="">Bursary</a></li> -->
         </ul>
         <div class="nav-btn">
@@ -235,7 +235,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
 
     <input type="submit" name="submit" class="formbold-btn" value="Login">
-    <p>Don't have an account? <a href="a_reg.php">Sign up now</a>.</p>     
+    <p>Don't have an account? <a href="s_reg.php">Sign up now</a>.</p>     
 </form>
             </div>
         </div>

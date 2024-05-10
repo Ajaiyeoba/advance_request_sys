@@ -17,7 +17,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 //         WHERE u.name = ?";
 
 $sql = "SELECT s.amount, s.date, s.request, u.name, u.staff_id
-FROM s_requests s
+FROM staff_requests s
 JOIN users u ON u.staff_id = u.staff_id";
 
 $stmt = mysqli_prepare($link, $sql);
@@ -95,8 +95,6 @@ if ($stmt) {
         </div>
     </header>
     <section>
-
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil soluta, esse maiores repellat eveniet in unde cupiditate ex atque praesentium, nisi quod ducimus facere magni molestiae magnam laboriosam quis distinctio!
         <h2> Kindly View the Following Requests</h2>
 
     </section>

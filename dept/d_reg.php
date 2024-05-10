@@ -193,12 +193,11 @@ if (empty(trim($_POST["confirm_password"]))) {
 
         <ul class="navmenu">
             <li><a href="../index.html">Home</a></li>            
-            <li><a href="staff_login.php">Staff</a></li>            
+            <li><a href="d_log.php">Department</a></li>            
         </ul>
 
         <div class="nav-btn">
-        <a href="login.php" class="" id="log-btn">Login</a>
-                <a href="register.php" class="main-btn" id="reg-btn">Register</a>
+       
            <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
@@ -256,7 +255,7 @@ if (empty(trim($_POST["confirm_password"]))) {
     </div>
               <div class="formbold-input-flex">
                 <label for="password" class="formbold-form-label">
-                  Confirm Paasword
+                  Confirm Password
                 </label>
                 <input
                     type="password"
@@ -283,7 +282,7 @@ if (empty(trim($_POST["confirm_password"]))) {
                 </a>
                 <p>Oyo State Nigeria</p>
                 <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+                <p>fundwatch@gmail.com</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>

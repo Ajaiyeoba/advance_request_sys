@@ -281,32 +281,32 @@ if (empty(trim($_POST["confirm_password"]))) {
         </div>
     </div>
     
-    <div class="formbold-input-flex">
-            <div>
-                <label for="password" class="formbold-form-label">
-                  Password
-                </label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    class="formbold-form-input  <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>"
-                />
-              </div>
 
-              <div>
+
+    <div class="formbold-input-flex">
+           
+                <div>
                 <label for="password" class="formbold-form-label">
-                  Confirm Paasword
+                        Password
+                </label>
+                <input type="password" name="password" id="password"
+                 class="formbold-form-input   <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>"
+                 />
+                </div>
+            <div >
+                <label for="password" class="formbold-form-label">
+                  Confirm Password
                 </label>
                 <input
-                    type="password"
+                    type="text"
                     name="confirm_password"
-                    id="password"
+                    id="confirm_password"
                     class="formbold-form-input   <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>"
-                />
+                    />
               </div>
     </div>
 
+   
     <input type="submit" name="submit" class="formbold-btn" value="Register">
 
     <p>Already Have an Account! <a href="s_log.php">Login</a></p>     

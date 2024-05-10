@@ -36,23 +36,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
         <ul class="navmenu">
             <li><a href="index.html">Home</a></li>            
-            <li><a href="staff/staff_login.php">Staff</a></li>        
+            <li><a href="s_log.php">Staff</a></li>        
 
         </ul>
 
         <div class="nav-btn">
-
-                <a href="login.php" class="" id="log-btn">Login</a>
-                <a href="register.php" class="main-btn" id="reg-btn">Register</a>
             <!-- <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Login</a>
             <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Register</a> -->
 
-           <div  class="fa-solid fa-bars" id="menu-icon">H</div>
+           <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
     <section>
     <h1 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b> Welcome Back.  </h1>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptate sapiente, nostrum eveniet sed incidunt pariatur, aspernatur voluptates ut harum quibusdam? Totam ducimus aut ex possimus voluptate est, quibusdam ipsum?
+
     </section>
 
     <section>

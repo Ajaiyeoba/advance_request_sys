@@ -35,6 +35,80 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/bf172a1461.js" crossorigin="anonymous"></script>
+<style>
+    /* New Form Styles */
+.formbold-main-wrapper{
+    display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 48px;
+}
+.formbold-form-wrapper {
+          margin: 0 auto;
+          max-width: 570px;
+          width: 100%;
+          background: white;
+          padding: 40px;
+        }
+        .formbold-form-title {
+          margin-bottom: 30px;
+        }
+        .formbold-form-title h2 {
+          font-weight: 600;
+          font-size: 28px;
+          line-height: 34px;
+          color: #07074d;
+        }
+        .formbold-input-flex {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 15px;
+        }
+        .formbold-input-flex > div {
+          width: 50%;
+        }
+        .formbold-form-input {
+          text-align: center;
+          width: 100%;
+          padding: 13px 22px;
+          border-radius: 5px;
+          border: 1px solid #dde3ec;
+          background: #ffffff;
+          font-weight: 500;
+          font-size: 16px;
+          color: #536387;
+          outline: none;
+          resize: none;
+        }
+        .formbold-form-input:focus {
+          border-color: #6a64f1;
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+        .formbold-form-label {
+          color: #536387;
+          font-size: 14px;
+          line-height: 24px;
+          display: block;
+          margin-bottom: 10px;
+        }
+        .formbold-btn {
+          font-size: 16px;
+          border-radius: 5px;
+          padding: 14px 25px;
+          border: none;
+          font-weight: 500;
+          background-color: #6a64f1;
+          color: white;
+          cursor: pointer;
+          margin-top: 25px;
+        }
+        .formbold-btn:hover {
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+        }
+        .formbold-mb-3 {
+          margin-bottom: 15px;
+        }
+</style>
 </head>
 <body>
    

@@ -87,7 +87,7 @@ mysqli_close($link);
     </header>
 
     <section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis adipisci odio incidunt commodi autem ex vitae animi omnis eos! Quas atque accusantium dolor tempore? Quaerat consequuntur blanditiis culpa atque fugit.
+    
         <h1 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b> Welcome Back.</h1>
     </section>
 
