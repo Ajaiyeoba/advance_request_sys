@@ -1,41 +1,5 @@
 <!-- This page is to allow staff make requests -->
 <?php
-
-// include '../config.php';
-
-// // Initialize the session
-// session_start();
-
-// // Check if the user is logged in, if not then redirect him to login page
-// if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-//     header("location: s_log.php");
-//     exit;
-    
-// }
-// if(isset($_POST['submit'])) {
-//   $staff_id = $_POST['staff_id'];
-//   $amount = $_POST['amount'];
-//   $request = $_POST['request'];
-//   $date = $_POST['date'];
-  
-//     // $sql = "INSERT INTO `s_requests` (amount, staff_id, request, date, status) VALUES (?, ?,?,? 'Pending')";
-  
-//     $sql = "INSERT INTO `staff_requests` (amount, staff_id, request, date, status) VALUES (?, ?, ?, ?, 'Pending')";
-//     $stmt = $link->prepare($sql);
-//     if ($stmt) {
-//         $stmt->bind_param("ssss",  $amount, $staff_id, $request, $date);
-//         if ($stmt->execute()) {
-//             // Redirect to staff_display.php after successful insertion
-//             header('location: s_display.php');
-//             exit(); // Terminate script after redirection
-//         } else {
-//             die("Error: Unable to execute query. " . mysqli_error($link));
-//         }
-//     } else {
-//         die("Error: Unable to prepare statement. " . mysqli_error($link));
-//     }
-// }
-
 include '../config.php';
 
 // Initialize the session

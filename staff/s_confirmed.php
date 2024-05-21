@@ -12,6 +12,42 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: s_log.php");
     exit;
 }
+$sql = " SELECT  id, amount, request, date,  status from staff_requests where status = 'confirmed' ";
+$stmt = mysqli_prepare($link, $sql);
+// Check if the prepare statement was successful
+if ($stmt) {
+    // Bind parameters to the prepared statement
+    // mysqli_stmt_bind_param($stmt, "i", $_SESSION["id"]);
+
+    // Execute the prepared statement
+    mysqli_stmt_execute($stmt);
+
+    // Get the result set
+    $result = mysqli_stmt_get_result($stmt);
+
+    // Initialize an array to store staff requests
+    $staffs = [];
+
+    // Check if the query was successful
+    if ($result) {
+        // Process the result set
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Add each row to the $staffs array
+            $staffs[] = $row;
+        }
+        // Free the result set
+        mysqli_free_result($result);
+    } else {
+        // Handle the case where the query failed
+        echo "Error: " . mysqli_error($link);
+    }
+      // Close the prepared statement
+      mysqli_stmt_close($stmt);
+    } else {
+        // Handle the case where the prepared statement failed
+        echo "Error: " . mysqli_error($link);
+    }
+    mysqli_close($link);
 ?>
 
 
@@ -31,7 +67,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     <header>
         <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+            <h2>FundWatch</h2> 
         </a>
 
         <ul class="navmenu">
@@ -41,9 +77,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </ul>
 
         <div class="nav-btn">
-            <!-- <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Login</a>
-            <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Register</a> -->
-
            <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
@@ -51,6 +84,48 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <h1 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b> Welcome Back.  </h1>
 
     </section>
+    <section>
+        <div class="limiter">
+            <div class="container-table100">
+                <div class="wrap-table100">
+                    <div class="table100">
+                        <table>
+                            <thead>
+                                <tr class="table100-head">
+                                    <!-- <th>Id</th> -->
+                                    <th>Amount</th>
+                                    <th>Request</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Operation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($staffs as $staff): ?>
+                                <tr>
+                                    <!-- <td class="column1"><?php echo htmlspecialchars($staff['id']); ?></td>    -->
+                                    <td class="column1"><?php echo htmlspecialchars($staff['amount']); ?></td>
+                                    <td class="column2"><?php echo htmlspecialchars($staff['request']); ?></td>
+                                    <td class="column3"><?php echo htmlspecialchars($staff['date']); ?></td>
+                                    <td class="column4"><?php echo htmlspecialchars($staff['status']); ?></td>
+                                    <td class="column5">
+
+                                        <a href="">
+                                            <button>Feedback</button>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <section>
     <a href="s_request.php" >

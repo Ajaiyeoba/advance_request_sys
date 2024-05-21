@@ -9,9 +9,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: s_log.php");
     exit;
 }
-
-
-
 $sql = "SELECT s.id, s.amount, s.request, s.date, s.status 
         FROM staff_requests s
         JOIN users u ON u.staff_id = u.staff_id
@@ -75,14 +72,11 @@ mysqli_close($link);
         </a>
         <ul class="navmenu">
             <li><a href="index.html">Home</a></li>            
-            <li><a href="dept/dept_reg.php">Dept</a></li>
             <li><a href="staff/staff_login.php">Staff</a></li>            
-            <li><a href="bursary/bursary_login.php">Audit</a></li>
         </ul>
         <div class="nav-btn">
-            <a href="login.php" class="" id="log-btn">Login</a>
-            <a href="register.php" class="main-btn" id="reg-btn">Register</a>
-            <div  class="fa-solid fa-bars" id="menu-icon">H</div>
+            
+            <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
 
@@ -140,7 +134,7 @@ mysqli_close($link);
                 </a>
                 <p>Oyo State Nigeria</p>
                 <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+                <p>fundwatch@gmail.com</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>
