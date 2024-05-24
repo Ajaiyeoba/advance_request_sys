@@ -146,17 +146,16 @@ mysqli_close($link);
         </div>
     </section>
 
-
     <section>
-        <a href="staff_request.php">
+           <a href="d_board.php">
             <button class="formbold-btn">
-                Make Request
+                Check Board
             </button>
                             </a>
 
-                            <a href="d_board.php">
+                            <a href="d_logout.php">
             <button class="formbold-btn">
-                Check Board
+            Logout
             </button>
                             </a>
     </section>

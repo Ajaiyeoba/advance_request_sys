@@ -10,49 +10,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: a_log.php");
     exit;
 }
-//  $sql = "SELECT s.id, s.amount, s.request, s.date, s.status 
-//          FROM s_requests s
-//          JOIN users u ON u.name = u.name
-//          WHERE u.name = ?";
-
-// $sql = "SELECT amount, date, request, s.status, u.name, u.staff_id
-// FROM s_requests s  WHERE status= 'pending' " ;
-//  global $row;
-// $query = mysqli_query($link,"SELECT * FROM s_requests WHERE status='Pending'");
-//  $stmt = mysqli_prepare($link, $sql);
-// $stmt = mysqli_prepare($link, $sql);
-// Check if the prepare statement was successful
-// if ($stmt) {
-
-//     // Execute the prepared statement
-//     mysqli_stmt_execute($stmt);
-
-// //     // Get the result set
-//     $result = mysqli_stmt_get_result($stmt);
-
-//     // Initialize an array to store staff requests
-//     $requests = [];
-
-//     // Check if the query was successful
-//     if ($result) {
-//         // Process the result set
-//         while ($row = mysqli_fetch_assoc($result)) {
-//             // Add each row to the $requests array
-//             $requests[] = $row;
-//         }
-//         // Free the result set
-//         mysqli_free_result($result);
-//     } else {
-//         // Handle the case where the query failed
-//         echo "Error: " . mysqli_error($link);
-//     }
-
-//     // Close the prepared statement
-//     mysqli_stmt_close($stmt);
-// } else {
-//     // Handle the case where the prepared statement failed
-//     echo "Error: " . mysqli_error($link);
-// }
 
 ?>
    <!DOCTYPE html>
@@ -81,9 +38,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </ul>
 
         <div class="nav-btn">
-                <!-- <a href="login.php" class="" id="log-btn">Login</a>
-                <a href="register.php" class="main-btn" id="reg-btn">Register</a> -->
-           
+
            <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
@@ -94,57 +49,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     </section>
 
-    <!-- <section>
-        <div class="limiter">
-            <div class="container-table100">
-                <div class="wrap-table100">
-                    <div class="table100">
-                        <table>
-                            <thead>
-                                <tr class="table100-head">
-                                 <th>Id</th> 
-                                    <th>Name</th>
-                                    <th>Amount</th>
-                                    <th>Request</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <!-- <?php //foreach($requests as $staff): ?> -->
-                                <tr>
-                                    <td class="column1"><?php// echo htmlspecialchars($staff['id']); ?></td>   
-                                    <td class="column1"><?php //echo htmlspecialchars($staff['name']); ?></td>   
-                                    <td class="column2 "><?php// echo htmlspecialchars($staff['amount']); ?></td>
-                                    <td class="column3"><?php //echo htmlspecialchars($staff['request']); ?></td>
-                                    <td class="column4"><?php //echo htmlspecialchars($staff['date']); ?></td>
-                                    <!-- <td>
-                                        <a href="a_update.php?eid={$row['name']}&descr={$row['request']}\"><button class='btn-success btn-sm' >Accept</button></a>
-                                        <a href="a_reject.php?eid={$row['name']}&descr={$row['request']}\"><button class='btn-danger btn-sm' >Reject</button></a>
-                                    </td> -->
-                                </tr>
-                            <!-- <?php// endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> - -->
 
 <section>
-    <!-- <a href="">
-        <button class="formbold-btn">View Staffs</button>
-    </a> -->
+
 
     <a href="a_requests.php">
         <button class="formbold-btn">Requests</button>
     </a>
 
-        <!-- <a href="a_board.php">
-            <button class="formbold-btn">View Board</button>
-        </a> -->
+        <a href="a_feedback.php">
+        <button class="formbold-btn">Staff Feedbacks </button>
+    </a>
+
     </section>
     <section class="contact">
         <div class="contact-info">

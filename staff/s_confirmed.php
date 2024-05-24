@@ -110,8 +110,8 @@ if ($stmt) {
                                     <td class="column4"><?php echo htmlspecialchars($staff['status']); ?></td>
                                     <td class="column5">
 
-                                        <a href="">
-                                            <button>Feedback</button>
+                                        <a href="s_feedback.php">
+                                            <button >Feedback</button>
                                         </a>
                                     </td>
                                 </tr>

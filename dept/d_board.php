@@ -53,10 +53,20 @@
 
 
     <section>
-        <a href="d_stafflist.php"> <button class="formbold-btn">View Staff</button></a>
+        <a href="d_stafflist.php"> 
+            <button class="formbold-btn">View Staff</button>
+        </a>
 
-        <a href="d_requestlist.php"><button class="formbold-btn">View Requests</button></a>
+        <a href="d_requestlist.php"> 
+            <button class="formbold-btn">View Requests</button>
+        </a>
     
+
+        <a href="d_feedback.php"> 
+            <button class="formbold-btn">Staff Feedback</button>
+        </a>
+
+
         <a href="d_logout.php">
             <button class="formbold-btn">Logout</button>
         </a>
