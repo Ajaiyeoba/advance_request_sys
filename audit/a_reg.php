@@ -98,7 +98,7 @@ if (empty(trim($_POST["confirm_password"]))) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Staff Registration</title>
+    <title>Audit Registration</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -183,8 +183,9 @@ if (empty(trim($_POST["confirm_password"]))) {
 </head>
 <body>
     <header>
+    <img src="../logo.png" alt="Logo"  width="80" height="80" />
         <a href="" class="logo">
-        <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+        <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
         </a>
 
         <ul class="navmenu">
@@ -193,8 +194,7 @@ if (empty(trim($_POST["confirm_password"]))) {
         </ul>
 
         <div class="nav-btn">
-        <a href="a_log.php" class="" id="log-btn">Login</a>
-                <a href="a_reg.php" class="main-btn" id="reg-btn">Register</a>
+
            <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
@@ -272,12 +272,11 @@ if (empty(trim($_POST["confirm_password"]))) {
     <section class="contact">
         <div class="contact-info">
             <div class="first-info">
+            <img src="../logo.png" alt="Logo"  width="80" height="80" />
                 <a href="" class="logo">
-                <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
-                <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>
@@ -287,36 +286,7 @@ if (empty(trim($_POST["confirm_password"]))) {
                 </div>
             </div>
 
-            <div class="second-info">
-                <h4>Support</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-
-            <div class="third-info">
-                <h4>Cart</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-            <div class="fourth-info">
-                <h4 href="register.php"> <a href="register.php">Company</a> </h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-
-            <div class="five-info">
-                <h4>Support</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
+          
         </div>
     </section>
 

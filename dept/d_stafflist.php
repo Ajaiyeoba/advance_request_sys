@@ -13,26 +13,47 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 // Define an array to store Staffs and their bios
-$users = [];
+ $users = [];
+ $department = $_SESSION["department"];
+// // Retrieve users and their bios from the database
+// $sql = "SELECT  id, staff_id, name, email, department FROM  users";
 
-// Retrieve users and their bios from the database
-$sql = "SELECT  id, staff_id, name, email, department FROM  users";
+// if($result = mysqli_query($link, $sql)){
+//     if(mysqli_num_rows($result) > 0){
+//         // Fetch associative array
+//         while($row = mysqli_fetch_assoc($result)){
+//             // Add each user and their bio to the $users array
+//             $users[] = $row;
+//         }
+//         // Free result set
+//         mysqli_free_result($result);
+//     } else{
+//         echo "No users found.";
+//     }
+// } else{
+//     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+// }
 
-if($result = mysqli_query($link, $sql)){
-    if(mysqli_num_rows($result) > 0){
-        // Fetch associative array
-        while($row = mysqli_fetch_assoc($result)){
-            // Add each user and their bio to the $users array
-            $users[] = $row;
-        }
-        // Free result set
-        mysqli_free_result($result);
-    } else{
-        echo "No users found.";
-    }
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+
+
+//  new query
+$sql = " SELECT id, staff_id, name, email, department from users WHERE department = ? ";
+if ($stmt = $link->prepare($sql)) {
+    $stmt->bind_param("s", $param_department);
+    $param_department = $department;
+
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $requests = $result->fetch_all(MYSQLI_ASSOC);
+
+    $stmt->close();
+} else {
+    // Handle error
+    echo "Oops! Something went wrong. Please try again later.";
 }
+
+
+
 
 // Close connection
 mysqli_close($link);
@@ -66,41 +87,14 @@ mysqli_close($link);
           box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
         }
 
-.crud-button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-}
 
-.crud-button:hover {
-  background-color: #45a049; /* Darker Green */
-}
-
-.crud-button.delete {
-  background-color: #f44336; /* Red */
-}
-
-.crud-button.delete:hover {
-  background-color: #da190b; /* Darker Red */
-}
-.flex-btn{
-    display:flex;
-}
 </style>
 <body>
    
 
     <header>
-        <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+        <a href="" class="logo">        <img src="../logo.png" alt="Logo"  width="80" height="80" />
+            <h2>CashAdvance</h2>
         </a>
 
         <ul class="navmenu">
@@ -109,7 +103,10 @@ mysqli_close($link);
         </ul>
 
         <div class="nav-btn">
-           <div  class="fa-solid fa-bars" id="menu-icon"></div>
+           <div  class="fa-solid fa-bars" id="menu-icon">
+           <h4><?php echo htmlspecialchars($_SESSION["department"]); ?></h2>
+           </div>
+           
         </div>
     </header>
     <section> 
@@ -163,12 +160,10 @@ mysqli_close($link);
     <section class="contact">
         <div class="contact-info">
             <div class="first-info">
-                <a href="" class="logo">
-                               <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                <a href="" class="logo">        <img src="../logo.png" alt="Logo"  width="80" height="80" />
+                               <h2>CashAdvance</h2>
                 </a>
-                <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>

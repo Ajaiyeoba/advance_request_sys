@@ -28,8 +28,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
    
 
     <header>
-        <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+    
+        <a href="" class="logo"> 
+        <img src="../logo.png" alt="Logo"  width="80" height="80" />
+            <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
 
         <ul class="navmenu">
@@ -53,24 +55,25 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <section>
 
 
-    <a href="a_requests.php">
+    <a href="a_disburse.php">
         <button class="formbold-btn">Requests</button>
     </a>
 
         <a href="a_feedback.php">
         <button class="formbold-btn">Staff Feedbacks </button>
     </a>
+    <a href="a_logout.php">
+        <button class="formbold-btn">Logout </button>
+    </a>
 
     </section>
     <section class="contact">
         <div class="contact-info">
-            <div class="first-info">
+            <div class="first-info">            <img src="../logo.png" alt="Logo"  width="80" height="80" />
                 <a href="" class="logo">
-                               <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                               <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
-                <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+             
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>
@@ -80,37 +83,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </div>
             </div>
 
-            <div class="second-info">
-                <h4>Support</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-
-            <div class="third-info">
-                <h4>Cart</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-            <div class="fourth-info">
-                <h4 href="register.php"> <a href="register.php">Company</a> </h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-
-            <div class="five-info">
-                <h4>Support</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-        </div>
+      
+        <
     </section>
 
     <div class="end-text">
@@ -118,4 +92,4 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
     <script src="../app.js"> </script> 
 </body>
-</html> -->
+</html> 

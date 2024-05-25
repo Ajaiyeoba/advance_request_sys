@@ -52,8 +52,9 @@ mysqli_close($link);
 </head>
 <body>
     <header>
+                <img src="../logo.png" alt="Logo"  width="80" height="80" />
         <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+            <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
 
         <ul class="navmenu">
@@ -65,12 +66,12 @@ mysqli_close($link);
 
         <div class="nav-btn">
 
-                <a href="login.php" class="" id="log-btn">Login</a>
-                <a href="register.php" class="main-btn" id="reg-btn">Register</a>
-            <!-- <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Login</a>
-            <a href="" class="main-btn"><i class="fa-solid fa-magnifying-glass"></i>Register</a> -->
 
-           <div  class="fa-solid fa-bars" id="menu-icon">H</div>
+<a href="p_board.php">
+        <button class="formbold-btn">Dashboard</button>
+    </a>
+
+           <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
     <section>
@@ -110,9 +111,7 @@ mysqli_close($link);
 
 
 
-    <a href="p_board.php">
-        <button class="formbold-btn">Dashboard</button>
-    </a>
+
     </section>
 
 
@@ -120,12 +119,14 @@ mysqli_close($link);
     <section class="contact">
         <div class="contact-info">
             <div class="first-info">
+
                 <a href="" class="logo">
-                               <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                            <img src="../logo.png" alt="Logo"  width="80" height="80" />
+                               <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
                 <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>fundwatch@gmail.com</p>
+                <p>09038503511</p>
+                <p>college@fcahptib.edu.ng</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>

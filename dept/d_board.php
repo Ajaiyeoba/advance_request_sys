@@ -28,7 +28,7 @@
 
     <header>
         <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+            <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
 
         <ul class="navmenu">
@@ -46,7 +46,9 @@
     </header>
     <section>
 
-<h1 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["hod_name"]); ?></b> Welcome Back.  </h1>    
+<h3 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["hod_name"]); ?></b> Welcome Back.  </h3>    
+
+<h4><?php echo htmlspecialchars($_SESSION["department"]); ?></h2>
 
 </section>
 
@@ -78,10 +80,10 @@
         <div class="contact-info">
             <div class="first-info">
                 <a href="" class="logo">
-                <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
                 <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
+                <p>09038503511</p>
                 <p>ajaiyeobajibola@gmail.com</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>

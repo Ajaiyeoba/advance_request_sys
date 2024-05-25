@@ -86,7 +86,7 @@ if ($stmt) {
 
     <header>
         <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+            <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
 
         <ul class="navmenu">
@@ -146,8 +146,8 @@ if ($stmt) {
         <a href="d_requestlist.php">
             <button class="formbold-btn">Staff Request</button>
         </a>
-
-        <a href="logout.php">
+                                
+        <a href="d_logout.php">
             <button class="formbold-btn">Logout</button>
         </a>
     </section>
@@ -156,11 +156,9 @@ if ($stmt) {
         <div class="contact-info">
             <div class="first-info">
                 <a href="" class="logo">
-                               <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                               <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
-                <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>

@@ -59,7 +59,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 $_SESSION["loggedin"] = true;
                                 $_SESSION["id"] = $id;
                                 $_SESSION["name"] = $name; // Store username in session
-                                
+                                // After validating the user credentials during login
+$_SESSION["staff_id"] = $staff_id; // Assuming $staff_id contains the staff_id of the logged-in user
+
                                 // Redirect user to welcome page
                                 header("location: s_request.php");
                             } else {
@@ -179,7 +181,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
     <header>
         <a href="" class="logo">
-            <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+            <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
         </a>
 
         <ul class="navmenu">
@@ -245,10 +247,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="contact-info">
             <div class="first-info">
                 <a href="" class="logo">
-                    <h2>FundWatch</h2>
+                    <h2>CashAdvance</h2>
                 </a>
                 <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
+                <p>09038503511</p>
                 <p>ajaiyeobajibola@gmail.com</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>

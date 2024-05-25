@@ -178,8 +178,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
     <header>
+
         <a href="" class="logo">
-            <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+        <img src="../logo.png" alt="Logo"  width="80" height="80" />
+            <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
         </a>
 
         <ul class="navmenu">
@@ -243,13 +245,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <section class="contact">
         <div class="contact-info">
-            <div class="first-info">
+            <div class="first-info">           
                 <a href="" class="logo">
-                    <h2>FundWatch</h2>
+                <img src="../logo.png" alt="Logo"  width="80" height="80" />
+                    <h2>CashAdvance</h2>
                 </a>
-                <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+              
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>

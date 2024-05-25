@@ -1,25 +1,26 @@
+
+
 <?php
 include '../config.php';
 
 // Initialize the session
 session_start();
 
-// Check if the user is logged in, if not then redirect him to the login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+// Check if the user is logged in, if not then redirect to the login page
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: s_log.php");
     exit;
 }
-$sql = "SELECT s.id, s.amount, s.request, s.date, s.status 
-        FROM staff_requests s
-        JOIN users u ON u.staff_id = u.staff_id
-        -- JOIN users st ON u.staff_id = st.id
-        WHERE u.id = ?";
+
+$sql = "SELECT id, amount, request, date, status 
+        FROM staff_requests 
+        WHERE staff_id = ?";
 $stmt = mysqli_prepare($link, $sql);
 
-// Check if the prepare statement was successful
+// Check if the prepared statement was successful
 if ($stmt) {
     // Bind parameters to the prepared statement
-    mysqli_stmt_bind_param($stmt, "i", $_SESSION["id"]);
+    mysqli_stmt_bind_param($stmt, "s", $_SESSION["staff_id"]);
 
     // Execute the prepared statement
     mysqli_stmt_execute($stmt);
@@ -50,6 +51,7 @@ if ($stmt) {
     // Handle the case where the prepared statement failed
     echo "Error: " . mysqli_error($link);
 }
+
 mysqli_close($link);
 ?>
 
@@ -68,20 +70,19 @@ mysqli_close($link);
 <body>
     <header>
         <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+            <img src="../logo.png" alt="Logo" width="80" height="80" />
+            <h2>CashAdvance</h2>
         </a>
         <ul class="navmenu">
-            <li><a href="index.html">Home</a></li>            
-            <li><a href="staff/staff_login.php">Staff</a></li>            
+            <li><a href="index.html">Home</a></li>
+            <li><a href="staff/staff_login.php">Staff</a></li>
         </ul>
         <div class="nav-btn">
-            
-            <div  class="fa-solid fa-bars" id="menu-icon"></div>
+            <div class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
 
     <section>
-    
         <h1 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b> Welcome Back.</h1>
     </section>
 
@@ -103,7 +104,7 @@ mysqli_close($link);
                             <tbody>
                             <?php foreach($staffs as $staff): ?>
                                 <tr>
-                                    <td class="column1"><?php echo htmlspecialchars($staff['id']); ?></td>   
+                                    <td class="column1"><?php echo htmlspecialchars($staff['id']); ?></td>
                                     <td class="column1"><?php echo htmlspecialchars($staff['amount']); ?></td>
                                     <td class="column2"><?php echo htmlspecialchars($staff['request']); ?></td>
                                     <td class="column3"><?php echo htmlspecialchars($staff['date']); ?></td>
@@ -130,11 +131,11 @@ mysqli_close($link);
         <div class="contact-info">
             <div class="first-info">
                 <a href="" class="logo">
-                    <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                    <h2>CashAdvance <img src="../logo.png" alt="Logo" width="80" height="80" /></h2>
                 </a>
                 <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>fundwatch@gmail.com</p>
+                <p>09038503511</p>
+                <p>college@fcahptib.edu.ng</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>
@@ -158,6 +159,7 @@ mysqli_close($link);
         <p> Copyright @2024. All Rights Reserved</p>
     </div>
 
-    <script src="../app.js"> </script> 
+    <script src="../app.js"></script>
 </body>
 </html>
+

@@ -51,13 +51,13 @@ mysqli_close($link);
 <script src="https://kit.fontawesome.com/bf172a1461.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <header>                   <img src="../logo.png" alt="Logo"  width="80" height="80" />
         <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+            <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
 
         <ul class="navmenu">
-            <li><a href="index.html">Home</a></li>            
+            <li><a href="../index.html">Home</a></li>            
             <li><a href="p_log.php">Provost</a></li>
           
 
@@ -78,9 +78,11 @@ mysqli_close($link);
             <button class="formbold-btn">View Staffs</button>
         </a>
         <a href="p_requests.php">
-            <button class="formbold-btn">Request</button>
+            <button class="formbold-btn"> Staff Request</button>
         </a>
-
+        <a href="p_confirm.php">
+            <button class="formbold-btn"> Confirmed Request</button>
+        </a>
 
 <a href="p_logout.php">
     <button class="formbold-btn"> Logout</button>
@@ -91,13 +93,13 @@ mysqli_close($link);
 
     <section class="contact">
         <div class="contact-info">
-            <div class="first-info">
+            <div class="first-info">                    <img src="../logo.png" alt="Logo"  width="80" height="80" />
                 <a href="" class="logo">
-                               <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                               <h2>CashAdvance </h2>
                 </a>
                 <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>fundwatch@gmail.com</p>
+                <p>09038503511</p>
+                <p>college@fcahptib.edu.ng</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>

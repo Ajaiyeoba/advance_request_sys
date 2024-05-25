@@ -11,10 +11,7 @@ if(!isset($_SESSION["pro-loggedin"]) || $_SESSION["pro-loggedin"] !== true){
     exit;
 }
 
-// $sql = "SELECT s.id, s.amount, s.request, s.date, s.status 
-//         FROM s_requests s
-//         JOIN users u ON u.name = u.name
-//         WHERE u.name = ?";
+
 
 $sql = "SELECT s.amount, s.date, s.request, s.status, u.name, u.staff_id
 FROM staff_requests s
@@ -24,10 +21,7 @@ $stmt = mysqli_prepare($link, $sql);
 
 // Check if the prepare statement was successful
 if ($stmt) {
-    // Bind parameters to the prepared statement
-    //mysqli_stmt_bind_param($stmt, "s", $_SESSION["name"]);
 
-    // Execute the prepared statement
     mysqli_stmt_execute($stmt);
 
     // Get the result set
@@ -75,9 +69,10 @@ if ($stmt) {
 <body>
    
 
-    <header>
+    <header>      
+    <img src="../logo.png" alt="Logo"  width="80" height="80" />
         <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+            <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
 
         <ul class="navmenu">
@@ -141,11 +136,10 @@ if ($stmt) {
         <div class="contact-info">
             <div class="first-info">
                 <a href="" class="logo">
-                               <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                <img src="../logo.png" alt="Logo"  width="80" height="80" />
+                               <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
-                <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>
@@ -163,28 +157,7 @@ if ($stmt) {
                 <p>Support</p>
             </div>
 
-            <div class="third-info">
-                <h4>Cart</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-            <div class="fourth-info">
-                <h4 href="register.php"> <a href="register.php">Company</a> </h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
 
-            <div class="five-info">
-                <h4>Support</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
         </div>
     </section>
 

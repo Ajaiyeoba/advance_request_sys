@@ -1,98 +1,69 @@
-<?php
-// Initialize the session
-session_start();
-
-// Include config file
+<?php session_start();
 require_once "../config.php";
 
-// Define variables and initialize with empty values
 $department = $password = "";
 $department_err = $password_err = $login_err = "";
 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    if(empty(trim($_POST["department"]))){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty(trim($_POST["department"]))) {
         $department_err = "Please select Department";
-    } else{
+    } else {
         $department = trim($_POST["department"]);
     }
 
-    // Check if password is empty   
-    if(empty(trim($_POST["password"]))){
+    if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter your password.";
-    } else{
+    } else {
         $password = trim($_POST["password"]);
     }
-    
-// Validate credentials
-if(empty($department_err) && empty($password_err)){
-    // Prepare a select statement
-    $sql = "SELECT id, department, hod_name, password FROM dept WHERE department = ? AND password = ?";
-    
-    if($stmt = mysqli_prepare($link, $sql)) {
-        // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "ss", $param_department, $param_password  );
+
+    if (empty($department_err) && empty($password_err)) {
+        $sql = "SELECT id, department, hod_name, password FROM dept WHERE department = ? AND password = ?";
         
-        // Set parameters
-        $param_department = $department;
-        $param_password = $password;
-    
-        // Attempt to execute the prepared statement
-        if(mysqli_stmt_execute($stmt)){
-            // Store result
-            mysqli_stmt_store_result($stmt);
-        
-            if(mysqli_stmt_num_rows($stmt) == 1){                    
-                // Bind result variables
-                mysqli_stmt_bind_result($stmt, $id, $department, $hod_name, $stored_password);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1) {                    
-                    // Bind result variables
+        if ($stmt = mysqli_prepare($link, $sql)) {
+            mysqli_stmt_bind_param($stmt, "ss", $param_department, $param_password);
+
+            $param_department = $department;
+            $param_password = $password;
+
+            if (mysqli_stmt_execute($stmt)) {
+                mysqli_stmt_store_result($stmt);
+
+                if (mysqli_stmt_num_rows($stmt) == 1) {
                     mysqli_stmt_bind_result($stmt, $id, $department, $hod_name, $stored_password);
-                // Fetch the result
-                if(mysqli_stmt_fetch($stmt)) {
-                    // Verify the password
-                    if($password === $stored_password) {
-                        // Password is correct, start a new session
-                        session_start();
-                        
-                        // Store data in session variables
-                        $_SESSION["loggedin"] = true;
-                        $_SESSION["id"] = $id;
-                        $_SESSION["hod_name"] = $hod_name; // Store username in session
-                        
-                        // Redirect user to dashboard
-                        header("location: d_board.php");
-                        exit;
-                    } else {
-                        // Password is incorrect
-                        $login_err = "Invalid password.";
+
+                    if (mysqli_stmt_fetch($stmt)) {
+                        if ($password === $stored_password) {
+                            session_start();
+
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["hod_name"] = $hod_name;
+                            $_SESSION["department"] = $department;
+
+                            header("location: d_board.php");
+                            exit;
+                        } else {
+                            $login_err = "Invalid password.";
+                        }
                     }
+                } else {
+                    $login_err = "Invalid department or password.";
                 }
             } else {
-                // Department or password is incorrect
-                $login_err = "Invalid department or password.";
+                echo "Oops! Something went wrong. Please try again later.";
             }
+
+            mysqli_stmt_close($stmt);
         } else {
-            // Error executing the statement
             echo "Oops! Something went wrong. Please try again later.";
         }
-
-        
-    } else {
-        // Error preparing the statement
-        echo "Oops! Something went wrong. Please try again later.";
     }
 
-    // Close statement
-    mysqli_stmt_close($stmt);
-}
-}
-// Close connection
-mysqli_close($link);
+    mysqli_close($link);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -181,7 +152,7 @@ mysqli_close($link);
 <body>
     <header>
         <a href="" class="logo">
-            <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+            <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
         </a>
 
         <ul class="navmenu">
@@ -224,29 +195,19 @@ mysqli_close($link);
               <h2 class="">Dept Login</h2>
     </div>
 
-    <div class="formbold-mb-3">
-            <!-- <label for="department" class="formbold-form-label">Department</label>
-            <select id="department" name="department">
-                <option value="Computer Science">Computer Scence</option>
-                <option value="Animal Health">Animal Health</option>
-                <option value="SLT">SLT</option>
-                <option value="Fishries">Fishries</option>
-                <option value="VLT">VLT</option>
-            </select>
-            <span class="invalid-feedback" style="display: ;"><?php // echo $department_err; ?></span>
-        </div> -->
 
-         <div>
-                <label for="department" class="formbold-form-label">
-                  department
-                </label>
-                <input
-                    type="text"
-                    name="department"
-                    id="department"
-                    class="formbold-form-input  <?php echo $department_err ; ?>"
-                />
-              </div>
+              <div class="formbold-mb-3">
+                <label for="department" class="formbold-form-label">Department</label>
+                <select id="department" name="department" class="formbold-form-input <?php echo (!empty($department_err)) ? 'is-invalid' : ''; ?>">
+                    <option value="">Select Department</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Animal Health">Animal Health</option>
+                    <option value="SLT">SLT</option>
+                    <option value="Fishries">Fishries</option>
+                    <option value="VLT">VLT</option>
+                </select>
+                <span class="invalid-feedback"><?php echo $department_err; ?></span>
+            </div>
     </div>
     <div class="formbold-mb-3">
             <div>
@@ -260,7 +221,7 @@ mysqli_close($link);
                     class="formbold-form-input  <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
                 />
               </div>
-    </div>
+    
 
     <input type="submit" name="submit" class="formbold-btn" value="Login">
     <p>Don't have an account? <a href="d_reg.php">Sign up now</a>.</p>     
@@ -273,10 +234,10 @@ mysqli_close($link);
         <div class="contact-info">
             <div class="first-info">
                 <a href="" class="logo">
-                    <h2>FundWatch</h2>
+                    <h2>CashAdvance</h2>
                 </a>
                 <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
+                <p>09038503511</p>
                 <p>ajaiyeobajibola@gmail.com</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
@@ -305,3 +266,4 @@ mysqli_close($link);
     <script src="../app.js"></script>
 </body>
 </html>
+

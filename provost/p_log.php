@@ -113,21 +113,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
    
 
-    <header>
+    <header>          <img src="../logo.png" alt="Logo"  width="80" height="80" />
         <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+            <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
 
         <ul class="navmenu">
-            <li><a href="index.html">Home</a></li>            
+            <li><a href="../index.html">Home</a></li>            
             <li><a href="bursary/bursary_login.php">Provost</a></li>
 
         </ul>
 
         <div class="nav-btn">
-                <a href="login.php" class="" id="log-btn">Login</a>
-                <a href="register.php" class="main-btn" id="reg-btn">Register</a>
-           <div  class="fa-solid fa-bars" id="menu-icon">H</div>
+
+           <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
 
@@ -178,13 +177,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <section class="contact">
         <div class="contact-info">
-            <div class="first-info">
+            <div class="first-info"> 
+            <img src="../logo.png" alt="Logo"  width="80" height="80" />
                 <a href="" class="logo">
-                               <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                               <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
-                <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
+              
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>
@@ -194,35 +192,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
             </div>
 
-            <div class="second-info">
-                <h4>Support</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-
-            <div class="third-info">
-                <h4>Cart</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-            <div class="fourth-info">
-                <h4 href="register.php"> <a href="register.php">Company</a> </h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-            </div>
-
-            <div class="five-info">
-                <h4>Support</h4>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
-                <p>Support</p>
+          
             </div>
         </div>
     </section>

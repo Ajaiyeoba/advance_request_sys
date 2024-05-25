@@ -12,18 +12,22 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 }
 
 if (isset($_POST['submit'])) {
-    // Check if staff_id is set and not empty
+    // Check if staff_id is set and no;t empty
     if (isset($_POST['staff_id']) && !empty($_POST['staff_id'])) {
         $staff_id = $_POST['staff_id'];
+        $bank = $_POST['bank'];
+        $name = $_POST['name'];
+        $department = $_POST['department'];
+        $number = $_POST['number'];
         $amount = $_POST['amount'];
         $request = $_POST['request'];
         $date = $_POST['date'];
 
         // Prepare and execute the SQL query
-        $sql = "INSERT INTO `staff_requests` (amount, staff_id, request, date, status) VALUES (?, ?, ?, ?, 'Pending')";
+        $sql = "INSERT INTO `staff_requests` (amount, department, staff_id, request, date, name, bank, number,  status) VALUES (?, ?,?, ?, ?,?,?,? , 'Pending')";
         $stmt = $link->prepare($sql);
         if ($stmt) {
-            $stmt->bind_param("ssss", $amount, $staff_id, $request, $date);
+            $stmt->bind_param("sssssssi",  $amount,  $department, $staff_id, $request,  $date, $bank, $name,  $number);
             if ($stmt->execute()) {
                 // Redirect to staff_display.php after successful insertion
                 header('location: s_display.php');
@@ -41,12 +45,6 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-
-
-
-
-
-?>
 
  
 <!DOCTYPE html>
@@ -208,7 +206,8 @@ form{
 <body>
     <header>
         <a href="" class="logo">
-            <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+        <img src="../logo.png" alt="Logo"  width="80" height="80" />
+            <h2>CashAdvance </h2>
         </a>
         <ul class="navmenu">
             <li><a href="../index.html">Home</a></li>            
@@ -257,9 +256,45 @@ form{
                 />
               </div>
             </div>
+            <div class="formbold-input-flex">
+            <div>
+                <label for="bank" class="formbold-form-label">
+                  Bank
+                </label>
+                <input
+                    type="text"
+                    name="bank"
+                    id="bank"
+                    class="formbold-form-input"
+                />
+              </div>
+          
+              <div>
+                <label for="number" class="formbold-form-label">
+                  Account number
+                </label>
+                <input
+                    type="number"
+                    name="number"
+                    id="number"
+                    class="formbold-form-input"
+                />
+              </div>
+            </div>
 
             <div class="formbold-input-flex">
             <div>
+                <label for="firstname" class="formbold-form-label">
+                 Account Name
+                </label>
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="formbold-form-input"
+                />
+              </div>
+     <div>
                 <label for="firstname" class="formbold-form-label">
                   Request
                 </label>
@@ -270,10 +305,13 @@ form{
                     class="formbold-form-input"
                 />
               </div>
+              
+            </div>
     
-              <div>
+            <div class="formbold-input-flex">
+           <div>
                 <label for="date" class="formbold-form-label">
-                  date
+                  Date
                 </label>
                 <input
                     type="date"
@@ -282,6 +320,25 @@ form{
                     class="formbold-form-input"
                 />
               </div>
+             
+             <div class="formbold-mb-3">
+             <label for="department" class="formbold-form-label">Department</label>
+             <select id="department" name="department" class="formbold-form-input ?>">
+                <option value="">Select Department</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Animal Health">Animal Health</option>
+                <option value="SLT">SLT</option>
+                <option value="Fishries">Fishries</option>
+                <option value="VLT">VLT</option>
+            </select>
+            <span class="invalid-feedback" style="display: none;"><?php echo $department_err; ?></span>
+        </div>
+
+
+    
+    
+    
+
             </div>
         
             <input type="submit" name="submit" class="formbold-btn" value="Make Request">
@@ -290,9 +347,9 @@ form{
         </div>
         </div>
 
-        <a href="s_confirmed.php" >
+        <!-- <a href="s_confirmed.php" >
             <button class="formbold-btn">Confirmed </button>
-        </a>
+        </a> -->
         
         <a href="s_display.php" >
             <button class="formbold-btn">Requests </button>
@@ -306,12 +363,10 @@ form{
     <section class="contact">
         <div class="contact-info">
             <div class="first-info">
+            <img src="../logo.png" alt="Logo"  width="80" height="80" />
                 <a href="" class="logo">
-                    <h2>TicketBritte</h2>
+                    <h2>Cash Advance</h2>
                 </a>
-                <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>ajaiyeobajibola@gmail.com</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>

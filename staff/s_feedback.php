@@ -201,7 +201,7 @@ form{
 <body>
     <header>
         <a href="" class="logo">
-            <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+            <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
         </a>
         <ul class="navmenu">
             <li><a href="../index.html">Home</a></li>            
@@ -289,7 +289,7 @@ form{
                     <h2>TicketBritte</h2>
                 </a>
                 <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
+                <p>09038503511</p>
                 <p>ajaiyeobajibola@gmail.com</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>

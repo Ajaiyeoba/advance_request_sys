@@ -20,8 +20,7 @@ $stmt = mysqli_prepare($link, $sql);
 
 // Check if the prepare statement was successful
 if ($stmt) {
-    // Bind parameters to the prepared statement
-    //mysqli_stmt_bind_param($stmt, "s", $_SESSION["name"]);
+    
 
 
      // Execute the prepared statement
@@ -73,9 +72,9 @@ if ($stmt) {
 <body>
    
 
-    <header>
+    <header>            <img src="../logo.png" alt="Logo"  width="80" height="80" />
         <a href="" class="logo">
-            <h2>FundWatch</h2>  <i class="fa-solid fa-comment-plus"></i>
+            <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
 
         <ul class="navmenu">
@@ -138,13 +137,14 @@ if ($stmt) {
 </section>
     <section class="contact">
         <div class="contact-info">
-            <div class="first-info">
+            <div class="first-info"> 
+            <img src="../logo.png" alt="Logo"  width="80" height="80" />
                 <a href="" class="logo">
-                               <h2>FundWatch </h2>
+                               <h2>CashAdvance </h2>
                 </a>
                 <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>FundWatch@gmail.com</p>
+                <p>09038503511</p>
+                <p>college@fcahptib.edu.ng</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>
@@ -190,6 +190,6 @@ if ($stmt) {
     <div class="end-text">
         <p> Copyright @2024. All Rghts Reserved</p>
     </div>
-    <script src="app.js"> </script> 
+    <script src="../app.js"> </script> 
 </body>
 </html>

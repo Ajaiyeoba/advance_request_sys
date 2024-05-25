@@ -20,8 +20,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $hod_name = trim($_POST["hod_name"]);
     }
     
-
-  
    // Check if the 'department' key exists in the $_POST array
 if(isset($_POST['department'])) {
     // Sanitize the input to remove any potentially harmful characters
@@ -36,8 +34,6 @@ if(isset($_POST['department'])) {
 } else {
     // The department field was not submitted in the form, handle this scenario accordingly
 }
-
-   
     // Validate password
 if (empty(trim($_POST["password"]))) {
     $password_err = "Please enter a password.";     
@@ -56,8 +52,6 @@ if (empty(trim($_POST["confirm_password"]))) {
         $confirm_password_err = "Password did not match.";
     }
 }
-
-    
     // Check input errors before inserting in database
     if( 
         empty($hod_name_err) && 
@@ -77,8 +71,6 @@ if (empty(trim($_POST["confirm_password"]))) {
             $param_hod_name = $hod_name;
             $param_department = $department;
             $param_password = $password; // Assign the password directly without hashing
-
-            
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
@@ -87,12 +79,10 @@ if (empty(trim($_POST["confirm_password"]))) {
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
-
             // Close statement
             mysqli_stmt_close($stmt);
         }
     }
-    
     // Close connection
     mysqli_close($link);
 }
@@ -188,7 +178,7 @@ if (empty(trim($_POST["confirm_password"]))) {
 <body>
     <header>
         <a href="" class="logo">
-        <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+        <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
         </a>
 
         <ul class="navmenu">
@@ -226,21 +216,21 @@ if (empty(trim($_POST["confirm_password"]))) {
     </div>
 
     
-
     <div class="formbold-mb-3">
-            <label for="department" class="formbold-form-label">Department</label>
-            <select id="department" name="department">
-                <option value="Computer Science">Computer Scence</option>
-                <option value="Animal Health">Animal Health</option>
-                <option value="SLT">SLT</option>
-                <option value="Fishries">Fishries</option>
-                <option value="VLT">VLT</option>
-            </select>
-            <span class="invalid-feedback" style="display: ;"><?php echo $department_err; ?></span>
-        </div>
+                <label for="department" class="formbold-form-label">Department</label>
+                <select id="department" name="department" class="formbold-form-input <?php echo (!empty($department_err)) ? 'is-invalid' : ''; ?>">
+                    <option value="">Select Department</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Animal Health">Animal Health</option>
+                    <option value="SLT">SLT</option>
+                    <option value="Fishries">Fishries</option>
+                    <option value="VLT">VLT</option>
+                </select>
+                <span class="invalid-feedback"><?php echo $department_err; ?></span>
+            </div>
     </div>
     
-    <div class="formbold-mb-3">
+    <div class="formbold-input-flex">
             <div>
                 <label for="password" class="formbold-form-label">
                   Password
@@ -252,8 +242,8 @@ if (empty(trim($_POST["confirm_password"]))) {
                     class="formbold-form-input  <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>"
                 />
               </div>
-    </div>
-              <div class="formbold-input-flex">
+    
+              <div class="">
                 <label for="password" class="formbold-form-label">
                   Confirm Password
                 </label>
@@ -278,11 +268,11 @@ if (empty(trim($_POST["confirm_password"]))) {
         <div class="contact-info">
             <div class="first-info">
                 <a href="" class="logo">
-                <h2>FundWatch <i class="fa-light fa-comment-plus"></i></h2>
+                <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
                 <p>Oyo State Nigeria</p>
-                <p>08052148610</p>
-                <p>fundwatch@gmail.com</p>
+                <p>09038503511</p>
+                <p>college@fcahptib.edu.ng</p>
                 <div class="social-icon">
                     <a href=""><i class="fa-brands fa-facebook"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a>
