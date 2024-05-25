@@ -208,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
                 <span class="invalid-feedback"><?php echo $department_err; ?></span>
             </div>
-    </div>
+    
     <div class="formbold-mb-3">
             <div>
                 <label for="password" class="formbold-form-label">
@@ -222,7 +222,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 />
               </div>
     
-
+    </div>
     <input type="submit" name="submit" class="formbold-btn" value="Login">
     <p>Don't have an account? <a href="d_reg.php">Sign up now</a>.</p>     
 </form>

@@ -213,7 +213,7 @@ if (empty(trim($_POST["confirm_password"]))) {
                     class="formbold-form-input  <?php echo (!empty($hod_name_err)) ? 'is-invalid' : ''; ?>"
                 />
               </div>
-    </div>
+
 
     
     <div class="formbold-mb-3">

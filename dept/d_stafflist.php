@@ -16,41 +16,41 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
  $users = [];
  $department = $_SESSION["department"];
 // // Retrieve users and their bios from the database
-// $sql = "SELECT  id, staff_id, name, email, department FROM  users";
+$sql = "SELECT  id, staff_id, name, email, department FROM  users";
 
-// if($result = mysqli_query($link, $sql)){
-//     if(mysqli_num_rows($result) > 0){
-//         // Fetch associative array
-//         while($row = mysqli_fetch_assoc($result)){
-//             // Add each user and their bio to the $users array
-//             $users[] = $row;
-//         }
-//         // Free result set
-//         mysqli_free_result($result);
-//     } else{
-//         echo "No users found.";
-//     }
-// } else{
-//     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-// }
-
-
-
-//  new query
-$sql = " SELECT id, staff_id, name, email, department from users WHERE department = ? ";
-if ($stmt = $link->prepare($sql)) {
-    $stmt->bind_param("s", $param_department);
-    $param_department = $department;
-
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $requests = $result->fetch_all(MYSQLI_ASSOC);
-
-    $stmt->close();
-} else {
-    // Handle error
-    echo "Oops! Something went wrong. Please try again later.";
+if($result = mysqli_query($link, $sql)){
+    if(mysqli_num_rows($result) > 0){
+        // Fetch associative array
+        while($row = mysqli_fetch_assoc($result)){
+            // Add each user and their bio to the $users array
+            $users[] = $row;
+        }
+        // Free result set
+        mysqli_free_result($result);
+    } else{
+        echo "No users found.";
+    }
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
+
+
+
+// //  new query
+// $sql = " SELECT id, staff_id, name, email, department from users WHERE department = ? ";
+// if ($stmt = $link->prepare($sql)) {
+//     $stmt->bind_param("s", $param_department);
+//     $param_department = $department;
+
+//     $stmt->execute();
+//     $result = $stmt->get_result();
+//     $requests = $result->fetch_all(MYSQLI_ASSOC);
+
+//     $stmt->close();
+// } else {
+//     // Handle error
+//     echo "Oops! Something went wrong. Please try again later.";
+// }
 
 
 
