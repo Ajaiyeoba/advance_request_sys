@@ -28,6 +28,7 @@
 
     <header>
         <a href="" class="logo">
+            <img src="../logo.png" alt="" width="80" height="80">
             <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
 
@@ -80,6 +81,7 @@
         <div class="contact-info">
             <div class="first-info">
                 <a href="" class="logo">
+                <img src="../logo.png" alt="" width="80" height="80">
                 <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
                 <p>Oyo State Nigeria</p>

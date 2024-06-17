@@ -215,7 +215,7 @@ form{
 <section>
         <div class="formbold-main-wrappper">
             <div class="formbold-form-wrapper">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="">
                 <div class="formbold-form-title">
               <h2 class="">Staff Feedback</h2>
     </div>

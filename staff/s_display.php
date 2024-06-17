@@ -11,8 +11,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: s_log.php");
     exit;
 }
-
-$sql = "SELECT id, amount, request, date, status 
+$sql = "SELECT id, amount, request, date
         FROM staff_requests 
         WHERE staff_id = ?";
 $stmt = mysqli_prepare($link, $sql);
@@ -84,6 +83,8 @@ mysqli_close($link);
 
     <section>
         <h1 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b> Welcome Back.</h1>
+
+        <h3>View  Requests Made by You</h3>
     </section>
 
     <section>
@@ -94,21 +95,17 @@ mysqli_close($link);
                         <table>
                             <thead>
                                 <tr class="table100-head">
-                                    <th>Id</th>
                                     <th>Amount</th>
                                     <th>Request</th>
                                     <th>Date</th>
-                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <?php foreach($staffs as $staff): ?>
                                 <tr>
-                                    <td class="column1"><?php echo htmlspecialchars($staff['id']); ?></td>
                                     <td class="column1"><?php echo htmlspecialchars($staff['amount']); ?></td>
                                     <td class="column2"><?php echo htmlspecialchars($staff['request']); ?></td>
                                     <td class="column3"><?php echo htmlspecialchars($staff['date']); ?></td>
-                                    <td class="column4"><?php echo htmlspecialchars($staff['status']); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>

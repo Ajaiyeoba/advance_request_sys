@@ -1,33 +1,26 @@
-<?php
-
-// this page is to display the staff confirmed requests 
-
+ <?php
 include '../config.php';
-
 // Initialize the session
 session_start();
-
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: s_log.php");
     exit;
 }
-$sql = " SELECT  id, amount, request, date,  status from staff_requests where status = 'confirmed' ";
+
+$sql = " SELECT  id, amount, request, date,  status FROM 
+            staff_requests
+            WHERE staff_id = ? ";
 $stmt = mysqli_prepare($link, $sql);
 // Check if the prepare statement was successful
 if ($stmt) {
-    // Bind parameters to the prepared statement
-    // mysqli_stmt_bind_param($stmt, "i", $_SESSION["id"]);
-
     // Execute the prepared statement
+    mysqli_stmt_bind_param($stmt, "s", $_SESSION["staff_id"]);
     mysqli_stmt_execute($stmt);
-
     // Get the result set
     $result = mysqli_stmt_get_result($stmt);
-
     // Initialize an array to store staff requests
     $staffs = [];
-
     // Check if the query was successful
     if ($result) {
         // Process the result set
@@ -49,8 +42,6 @@ if ($stmt) {
     }
     mysqli_close($link);
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,6 +58,7 @@ if ($stmt) {
 
     <header>
         <a href="" class="logo">
+            <img src="../logo.png" alt="" width="80" height="80">
             <h2>CashAdvance</h2> 
         </a>
 
@@ -81,8 +73,8 @@ if ($stmt) {
         </div>
     </header>
     <section>
-    <h1 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b> Welcome Back.  </h1>
-
+    <h1 class="my-5">Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>   </h1>
+<h3>Confirmed Requests</h3>
     </section>
     <section>
         <div class="limiter">
@@ -103,15 +95,13 @@ if ($stmt) {
                             <tbody>
                             <?php foreach($staffs as $staff): ?>
                                 <tr>
-                                    <!-- <td class="column1"><?php echo htmlspecialchars($staff['id']); ?></td>    -->
                                     <td class="column1"><?php echo htmlspecialchars($staff['amount']); ?></td>
                                     <td class="column2"><?php echo htmlspecialchars($staff['request']); ?></td>
                                     <td class="column3"><?php echo htmlspecialchars($staff['date']); ?></td>
                                     <td class="column4"><?php echo htmlspecialchars($staff['status']); ?></td>
                                     <td class="column5">
-
                                         <a href="s_feedback.php">
-                                            <button >Feedback</button>
+                                            <button  class="formbold-btn">Feedback</button>
                                         </a>
                                     </td>
                                 </tr>
@@ -129,7 +119,7 @@ if ($stmt) {
 
     <section>
     <a href="s_request.php" >
-            <button class="formbold-btn">New Requests </button>
+            <button class="formbold-btn">Make New Requests </button>
         </a>
 
         <a href="s_logout.php" >
@@ -143,6 +133,7 @@ if ($stmt) {
         <div class="contact-info">
             <div class="first-info">
                 <a href="" class="logo">
+                <img src="../logo.png" alt="" width="80" height="80">
                 <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
                 <p>Oyo State Nigeria</p>
@@ -180,4 +171,4 @@ if ($stmt) {
     </div>
     <script src="../app.js"> </script> 
 </body>
-</html>
+</html> -->

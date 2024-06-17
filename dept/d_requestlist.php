@@ -72,21 +72,23 @@ mysqli_close($link);
                         <table>
                             <thead>
                                 <tr class="table100-head">
-                                    <th>Name</th>
+                                    <th>Staff Id</th>
                                     <th>Amount</th>
                                     <th>Request</th>
                                     <th>Date</th>
                                     <th>Department</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <?php foreach($requests as $staff): ?>
                                 <tr>
-                                    <td class="column1"><?php echo htmlspecialchars($staff['name']); ?></td>
+                                    <td class="column1"><?php echo htmlspecialchars($staff['staff_id']); ?></td>
                                     <td class="column1"><?php echo htmlspecialchars($staff['amount']); ?></td>
                                     <td class="column2"><?php echo htmlspecialchars($staff['request']); ?></td>
                                     <td class="column3"><?php echo htmlspecialchars($staff['date']); ?></td>
                                     <td class="column3"><?php echo htmlspecialchars($staff['department']); ?></td>
+                                    <td class="column3"><?php echo htmlspecialchars($staff['status']); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -98,7 +100,7 @@ mysqli_close($link);
     </section>
     <section>
         <a href="d_board.php">
-            <button class="formbold-btn">View Board</button>
+            <button class="formbold-btn"> Dashboard</button>
         </a>
     </section>
     <section class="contact">

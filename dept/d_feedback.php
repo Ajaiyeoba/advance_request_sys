@@ -1,6 +1,3 @@
-
-
-
 <?php
 // This page to view staff requests. 
 include '../config.php';
@@ -13,17 +10,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: d_log.php");
     exit;
 }
-
-
 $sql = "SELECT  staff_id, comment, receipt from s_feedback";
 $stmt = mysqli_prepare($link, $sql);
 
 // Check if the prepare statement was successful
 if ($stmt) {
-    // Bind parameters to the prepared statement
-    //mysqli_stmt_bind_param($stmt, "s", $_SESSION["name"]);
-
-
      // Execute the prepared statement
      mysqli_stmt_execute($stmt);
 
@@ -55,20 +46,6 @@ if ($stmt) {
 }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,26 +59,22 @@ if ($stmt) {
 <script src="https://kit.fontawesome.com/bf172a1461.js" crossorigin="anonymous"></script>
 </head>
 <body>
-   
-
     <header>
         <a href="" class="logo">
             <h2>CashAdvance</h2>  <i class="fa-solid fa-comment-plus"></i>
         </a>
-
         <ul class="navmenu">
             <li><a href="index.html">Home</a></li>            
             <li><a href="dept/d_log.php">Department</a></li>
         </ul>
-
         <div class="nav-btn">
            <div  class="fa-solid fa-bars" id="menu-icon"></div>
         </div>
     </header>
 
-
-
-
+    <section>
+        <h2>View the Staff Feedbacks</h2>
+    </section>
     <section>
         <div class="limiter">
             <div class="container-table100">
@@ -110,23 +83,17 @@ if ($stmt) {
                         <table>
                             <thead>
                                 <tr class="table100-head">
-        
                                     <th>Staff_id</th>
                                     <th>receipt</th>
                                     <th>comment</th>
-
-                                    
                                 </tr>
                             </thead>
                             <tbody>
                             <?php foreach($feedback as $staff): ?>
                                 <tr>
-
                                     <td class="column1"><?php echo htmlspecialchars($staff['staff_id']); ?></td>   
                                     <td class="column1"><?php echo htmlspecialchars($staff['receipt']); ?></td>
                                     <td class="column2"><?php echo htmlspecialchars($staff['comment']); ?></td>
-
-                                    
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>

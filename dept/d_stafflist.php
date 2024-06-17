@@ -11,54 +11,23 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: d_log.php");
     exit;
 }
-
-// Define an array to store Staffs and their bios
- $users = [];
  $department = $_SESSION["department"];
-// // Retrieve users and their bios from the database
-$sql = "SELECT  id, staff_id, name, email, department FROM  users";
 
-if($result = mysqli_query($link, $sql)){
-    if(mysqli_num_rows($result) > 0){
-        // Fetch associative array
-        while($row = mysqli_fetch_assoc($result)){
-            // Add each user and their bio to the $users array
-            $users[] = $row;
-        }
-        // Free result set
-        mysqli_free_result($result);
-    } else{
-        echo "No users found.";
-    }
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+$sql = "SELECT * FROM users WHERE department = ?";
+if ($stmt = $link->prepare($sql)) {
+    $stmt->bind_param("s", $param_department);
+    $param_department = $department;
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $requests = $result->fetch_all(MYSQLI_ASSOC);
+    $stmt->close();
+} else {
+    // Handle error
+    echo "Oops! Something went wrong. Please try again later.";
 }
-
-
-
-// //  new query
-// $sql = " SELECT id, staff_id, name, email, department from users WHERE department = ? ";
-// if ($stmt = $link->prepare($sql)) {
-//     $stmt->bind_param("s", $param_department);
-//     $param_department = $department;
-
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     $requests = $result->fetch_all(MYSQLI_ASSOC);
-
-//     $stmt->close();
-// } else {
-//     // Handle error
-//     echo "Oops! Something went wrong. Please try again later.";
-// }
-
-
-
-
 // Close connection
 mysqli_close($link);
     ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,17 +55,13 @@ mysqli_close($link);
         .formbold-btn:hover {
           box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
         }
-
-
 </style>
 <body>
-   
-
     <header>
-        <a href="" class="logo">        <img src="../logo.png" alt="Logo"  width="80" height="80" />
+        <a href="" class="logo">        
+            <img src="../logo.png" alt="Logo"  width="80" height="80" />
             <h2>CashAdvance</h2>
         </a>
-
         <ul class="navmenu">
             <li><a href="../index.html">Home</a></li>            
             <li><a href="d_log.php">Department</a></li>
@@ -106,7 +71,6 @@ mysqli_close($link);
            <div  class="fa-solid fa-bars" id="menu-icon">
            <h4><?php echo htmlspecialchars($_SESSION["department"]); ?></h2>
            </div>
-           
         </div>
     </header>
     <section> 
@@ -118,17 +82,17 @@ mysqli_close($link);
                         <table>
                             <thead>
                                 <tr class="table100-head">
-                                    <th>Id</th>
-                                    <th>staff_id </th>
+                                    <!-- <th>Id</th> -->
+                                    <th>Staff id </th>
                                     <th>Name </th>
                                     <th>Email</th>
                                     <th>Department</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($users as $user): ?>
+                            <?php foreach($requests as $user): ?>
                                 <tr>
-                                <td class="column1"> <?php echo htmlspecialchars($user['id']); ?></td>   
+                                <!-- <td class="column1"> <?php// echo htmlspecialchars($user['id']); ?></td>    -->
                                 <td class="column1"> <?php echo htmlspecialchars($user['staff_id']); ?></td>
                                 <td class="column2"> <?php echo htmlspecialchars($user['name']); ?></td>
                                 <td class="column3"> <?php echo htmlspecialchars($user['email']); ?></td>
@@ -146,7 +110,7 @@ mysqli_close($link);
     <section>
            <a href="d_board.php">
             <button class="formbold-btn">
-                Check Board
+                Dashboard
             </button>
                             </a>
 

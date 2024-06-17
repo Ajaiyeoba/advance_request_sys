@@ -110,7 +110,12 @@ mysqli_close($link);
     </section>
 
 
-
+<section>
+<a href="p_board.php">
+            <button class="formbold-btn">
+                Dashboard
+            </button>
+                            </a>
 
     </section>
 
