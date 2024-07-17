@@ -51,6 +51,7 @@ $result = mysqli_query($link, $query);
 <body>
     <header>
         <a href="" class="logo">
+            <img src="../logo.png" alt="" width="80" height="80">
             <h2>CashAdvance</h2>
         </a>
         <ul class="navmenu">
@@ -126,8 +127,9 @@ $result = mysqli_query($link, $query);
 
     <section class="contact">
         <div class="contact-info">
-            <div class="first-info">         <img src="../cashad system/logo.png" alt="Logo"  width="80" height="80" />
+            <div class="first-info">         
                 <a href="" class="logo">
+                <img src="../cashad system/logo.png" alt="Logo"  width="80" height="80" />
                     <h2>CashAdvance <i class="fa-light fa-comment-plus"></i></h2>
                 </a>
             

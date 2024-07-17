@@ -10,9 +10,6 @@ if(!isset($_SESSION["pro-loggedin"]) || $_SESSION["pro-loggedin"] !== true){
     header("location: p_log.php");
     exit;
 }
-
-
-
 $sql = "SELECT s.amount, s.date, s.request, s.status, u.name, u.staff_id
 FROM staff_requests s
 JOIN users u ON u.staff_id = u.staff_id";
@@ -23,13 +20,10 @@ $stmt = mysqli_prepare($link, $sql);
 if ($stmt) {
 
     mysqli_stmt_execute($stmt);
-
     // Get the result set
     $result = mysqli_stmt_get_result($stmt);
-
     // Initialize an array to store staff requests
     $requests = [];
-
     // Check if the query was successful
     if ($result) {
         // Process the result set
